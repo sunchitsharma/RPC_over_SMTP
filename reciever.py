@@ -5,13 +5,6 @@ import imaplib
 import email
 import sendmail as sm
 
-ORG_EMAIL   = "@zoho.com"
-FROM_EMAIL  = "sunchit" + ORG_EMAIL
-FROM_PWD    = "G@te2017"
-SMTP_SERVER = "imap.zoho.com"
-SMTP_PORT   = 993
-
-
 # Read mails and reply for the query
 def readmail():
     # To track new mails
@@ -20,9 +13,9 @@ def readmail():
     while(True):
         try:
             # Initiating the imap request
-            mail = imaplib.IMAP4_SSL(SMTP_SERVER)
+            mail = imaplib.IMAP4_SSL("imap.zoho.com")
             # Logging in to recieve mails
-            mail.login(FROM_EMAIL,FROM_PWD)
+            mail.login("sunchit@zoho.com","G@te2017")
             mail.select('Inbox')
             # recieving all data
             type, data = mail.search(None, 'ALL')
